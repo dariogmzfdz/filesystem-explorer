@@ -1,0 +1,66 @@
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.title-container {
+  text-align: center;
+}
+
+.title {
+  min-width: 100%;
+  max-height: 10vh;
+  font-size: 25px;
+  text-shadow: 1px 2px rgb(138, 138, 138);
+  color: rgb(0, 0, 0);
+}
+
+.container-form {
+  padding: 35px;
+  text-align: center;
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+}
+
+h4 {
+  margin: 5px;
+}
+
+.btn {
+  margin: 10%;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 2%;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  touch-action: manipulation;
+  background-color: rgba(77, 77, 77, 0.459);
+}
+
+.btn:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 0.25em 0.75em;
+  }
+}
+
+input[type="text"],
+input[type="password"] {
+  background-color: rgba(77, 77, 77, 0.459);
+}
