@@ -2,7 +2,9 @@
 <?php
 	function createDirectory() {
 		$add = $_POST["add"];
-		mkdir("".$add);
+		//mkdir("".$add);
+		$path = '/uploads'; 
+		mkdir($path, 0777, true);
 	
 		echo "<script type = 'text/javascript'>alert('Done!');</script>";
 	}

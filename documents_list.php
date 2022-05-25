@@ -41,6 +41,10 @@
                             <h4 class="no-margin-top"> Folders</h4>
                             <ul class="folders list-unstyled">
                                 <li>
+                                <a href="/filesystem-explorer-1/uploads">
+                                        <i class="fa fa-folder"></i> UPLOADS
+                                    </a>
+                                </li>
                                     <a href="#">
                                         <i class="fa fa-folder"></i> Web projects
                                     </a>
@@ -274,7 +278,7 @@
 <?php
 	function createDirectory() {
 		$add = $_POST["add"];
-		mkdir("".$add);
+		mkdir("./uploads/".$add);
 		echo "<script type = 'text/javascript'>alert('Done!');</script>";
 	}
 ?>
