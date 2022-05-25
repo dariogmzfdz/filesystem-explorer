@@ -262,22 +262,56 @@
                     <h5 class="modal-title" id="exampleModalLabel">New folder</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <?php
-                    if (isset($_POST["Create_File"])) {
-                        mkdir($_POST["file_name"],);
-                    }
-                    ?>
-                    <form method="post" action="./php-files/createDir.php" id="create_form">
-                        <label for="filename">Folder name: </label>
-                        <input type="text" name="file_name" id="filename">
-                </div>
-                <div class="modal-footer">
-                    <input type="hidden" name="path" value='<?php echo $path ?>'>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" name="create_file">Create File</button>
-                    </form>
-                </div>
+            
+                 
+               
+                 <div class="modal-body">
+                 <form action="upload.php" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit" name="submit" >UPLOAD</button>
+
+</form>
+<?php
+	function createDirectory() {
+		$add = $_POST["add"];
+		mkdir("".$add);
+		echo "<script type = 'text/javascript'>alert('Done!');</script>";
+	}
+?>
+<?php
+		if (!isset($_POST['submit'])) {
+	?>
+<form action = "" method = "post">
+			
+			<table>
+			<tr>
+				<td style = " border-style: none;"></td>
+				<td bgcolor = "lightgreen" style = "font-weight: bold">
+					Enter Dummy Text and Then Press 'Create Directory'
+				</td>
+				
+				<td bgcolor = "lightred">
+					<input type = "text" style = "width: 220px;"
+					class = "form-control" name = "add" id = "add" />
+				</td>
+				
+				<td bgcolor = "lightgreen" colspan = "2">
+					<input type = "submit" name = "submit"
+						value = "Create directory" />
+				</td>
+			</tr>
+			</table>
+		</form>    
+        <?php
+		}
+		else {
+			createDirectory();
+		}
+	?> 
+           </div>
+              
+                    
+               
             </div>
         </div>
     </div>

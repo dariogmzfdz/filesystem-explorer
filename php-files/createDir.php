@@ -1,18 +1,29 @@
 <?php
-if ($_POST["path"] != "") {
-
-  $my_dir = './../' . $_POST["path"] . '/';
-  $url = '?path=' . $_POST["path"];
-} else {
-  $my_dir = "./../root";
-  $url = "";
+if(isset($_POST['path'])){
+     $file$_FILES['file'];
+     $fileName=$_FILES['file']['name'];
+     $fileTmpName=$_FILES['file']['tmp_name'];
+     $fileSize=$_FILES['file']['size'];
+     $fileError=$_FILES['file']['error'];
+     $fileType=$_FILES['file']['type'];
+     $fileExt = explode('.', $fileName);
+    $fileActualExt = strtolower(end($fileExt));
+    $allowed = array('jpg','jpeg','png','pdf');
+if(in_array($fileActualExt,$allowed)){
+  if ($fileError === 0){
+if ($fileSize < 1000000){
+$fileNameNew = uniqid('',true). ".".$fileActualExt;
+$fileDestination = 'uploads/' .$fileNameNew;
+move_uploaded_file($fileTmpName, $fileDestination);
+header("Location: index.php?uploadsuccess")
+}else {
+  echo "Your file is too big!"
 }
-$my_dir .= $_POST["file_name"];
-if (!is_dir($my_dir)) {
-  mkdir($my_dir);
-  echo "Se ha creado el directorio $my_dir";
-  header('location:./../document_list.php' . $url);
-} else {
-  echo "el directorio $my_dir ya existe! No lo vamos a crear de nuevo";
-  header('location:./../document_list.php' . $url);
+  }else {
+    echo "There was an error uploading your file!!";
+  }
+    #code ...
+}else{
+    echo"You cannot upload files of this type!";
+}
 }
