@@ -2,10 +2,7 @@
 <?php
 	function createDirectory() {
 		$add = $_POST["add"];
-		//mkdir("".$add);
-		$path = '/uploads'; 
-		mkdir($path, 0777, true);
-	
+		mkdir("./uploads/".$add);
 		echo "<script type = 'text/javascript'>alert('Done!');</script>";
 	}
 ?>
@@ -26,7 +23,7 @@
 			<tr>
 				<td style = " border-style: none;"></td>
 				<td bgcolor = "lightgreen" style = "font-weight: bold">
-					Enter Dummy Text and Then Press 'Create Directory'
+					Folder Name'
 				</td>
 				
 				<td bgcolor = "lightred">
@@ -36,7 +33,7 @@
 				
 				<td bgcolor = "lightgreen" colspan = "2">
 					<input type = "submit" name = "submit"
-						value = "Create directory" />
+						value = "Create" />
 				</td>
 			</tr>
 			</table>
