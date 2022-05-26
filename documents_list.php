@@ -256,7 +256,35 @@
             </div>
         </div>
     </div>
+      <ul>
+            <?php
+$path = "./uploads";
+$ficheros = scandir($path);
+foreach($ficheros as $key => $fichero){
+    if($fichero != "." && $fichero != ".."){
+        $rutaCompleta = $path . '/' .$fichero;
+        if (is_file($rutaCompleta)) {
+            ?>
+            <li>
+            <img width="10px" height="10px" src="img/file.png">
+            <?php echo $fichero; ?>
+        </li>
+    <?php
+    } else {
+    ?>
+        <li>
+            <img width="10px" height="10px" src="img/folder.png">
+            <?php echo $fichero; ?>
+        </li>
+    <?php
+    }
+}
+}
+    
 
+
+	?> 
+</ul>
     <!--MODAL FOR CREATE FOLDERS-->
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -281,8 +309,7 @@
 		mkdir("./uploads/".$add);
 		echo "<script type = 'text/javascript'>alert('Done!');</script>";
 	}
-?>
-<?php
+
 		if (!isset($_POST['submit'])) {
 	?>
 <form action = "" method = "post">
@@ -310,10 +337,10 @@
 		}
 		else {
 			createDirectory();
-		}
-	?> 
+		}?>
+  
            </div>
-              
+
                     
                
             </div>
