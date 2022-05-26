@@ -306,7 +306,7 @@ foreach($ficheros as $key => $fichero){
 <?php
 	function createDirectory() {
 		$add = $_POST["add"];
-		mkdir("./uploads/".$add);
+		mkdir("" . $add);
 		echo "<script type = 'text/javascript'>alert('Done!');</script>";
 	}
 
