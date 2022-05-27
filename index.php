@@ -14,6 +14,9 @@
 
 
 <body>
+<?php
+require_once("./includes/FolderTree.php");
+?>
 <div class="container">
 <button class="btn btn-block btn-success fa fa-plus" data-bs-toggle="modal" data-bs-target="#NewFolder"> Create a new folfer</button>
 </div>
