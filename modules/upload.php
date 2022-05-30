@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
 
     $allowed = array('jpg', 'gif', 'jpeg', 'png', 'pdf');
     // define las extensiones permitidas.
-
+   
     if (in_array($fileActualExt, $allowed)) {
         if ($fileError === 0) { // si no encuentra errores
             if ($fileSize < 1000000){ // define el tamaño del archivo

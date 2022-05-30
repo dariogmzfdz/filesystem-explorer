@@ -1,7 +1,7 @@
 <html>
 
-                <div class="tab-pane active documents documents-panel">
-                 
+            <div class="tab-pane active documents documents-panel"> 
+
 
             <?php
 $path = "./uploads";
@@ -10,29 +10,34 @@ foreach($ficheros as $key => $fichero){
     if($fichero != "." && $fichero != ".."){
         $rutaCompleta = $path . '/' .$fichero;
         if (is_file($rutaCompleta)) {
-          
-            ?> 
+
+            ?>    
+          <a href="<?php
+        require_once ('../modules/downloadFile.php');
+       
+    ?>    "    </a> 
+              
             <div class="document">
-                    
-                    
+              
              <div class="document-body">
             
             <i class="fa fa-file-pdf-o text-danger"></i></div>
        
             <div class="document-footer">
                             <span class="document-name"> 
-                           
-                       
-        <?php echo $fichero; ?>
-    </span>  
-</div> </div>
+                     
+          
+        <?php echo $fichero; 
+        ?>     
+    </span> 
+</div>  </div>
        
     <?php
     } else {
     ?>
         <li>
             <img width="10px" height="10px" src="img/folder.png">
-           
+    </img>           
         </li>
     <?php
     }
@@ -41,10 +46,13 @@ foreach($ficheros as $key => $fichero){
 
 
 	?>
-    </div>
+   
+    </div> 
     </div>
     </div>
 
-     
+
+
+
    </html>
 
