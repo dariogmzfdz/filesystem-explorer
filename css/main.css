@@ -313,6 +313,7 @@ body{
   border: 1px solid #dce2e9;
 }
 
+
 @media (min-width: 768px) {
   .nav-tabs.nav-justified > li {
     display: table-cell;

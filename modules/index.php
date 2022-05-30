@@ -15,7 +15,7 @@
 
 <body>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
@@ -40,6 +40,10 @@
                             <div class="v-spacing-xs"></div>
                             <h4 class="no-margin-top"> Folders</h4>
                             <ul class="folders list-unstyled">
+                           <?php
+        require_once ('../modules/printFolder.php');
+        ?>
+
                                 <li>
                                 <a href="/filesystem-explorer-1/uploads">
                                         <i class="fa fa-folder"></i> UPLOADS
@@ -79,8 +83,9 @@
                                         <i class="fa fa-folder"></i> Messenger sounds
                                     </a>
                                 </li>
-                            </ul>
-                            <div class="v-spacing-xs"></div>
+                            </ul> 
+
+                             <div class="v-spacing-xs"></div>
                             <button class="btn btn-block btn-success fa fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"> Create Directory</button>
                         </div>
                         <div class="tab-pane images-panel">
@@ -112,7 +117,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
+            
             <div class="col-sm-8 tab-content no-bg no-border">
                 <div class="tab-pane active documents documents-panel">
                     <div class="document success">
@@ -251,40 +257,18 @@
                             <span class="document-name"> Developers meeting.png </span>
                             <span class="document-description"> 862 KB </span>
                         </div>
-                    </div>
-                </div>
-            </div>
+             </div>
+        
+        </div>   
+                    <?php
+        require_once ('../modules/createFile.php');
+        ?> 
+       
+            </div> 
         </div>
+      
     </div>
-      <ul>
-            <?php
-$path = "./uploads";
-$ficheros = scandir($path);
-foreach($ficheros as $key => $fichero){
-    if($fichero != "." && $fichero != ".."){
-        $rutaCompleta = $path . '/' .$fichero;
-        if (is_file($rutaCompleta)) {
-            ?>
-            <li>
-            <img width="10px" height="10px" src="img/file.png">
-            <?php echo $fichero; ?>
-        </li>
-    <?php
-    } else {
-    ?>
-        <li>
-            <img width="10px" height="10px" src="img/folder.png">
-            <?php echo $fichero; ?>
-        </li>
-    <?php
-    }
-}
-}
-    
-
-
-	?> 
-</ul>
+     </ul>
     <!--MODAL FOR CREATE FOLDERS-->
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -303,45 +287,13 @@ foreach($ficheros as $key => $fichero){
     <button type="submit" name="submit" >UPLOAD</button>
 
 </form>
-<?php
-	function createDirectory() {
-		$add = $_POST["add"];
-		mkdir("" . $add);
-		echo "<script type = 'text/javascript'>alert('Done!');</script>";
-	}
 
-		if (!isset($_POST['submit'])) {
-	?>
-<form action = "" method = "post">
-			
-			<table>
-			<tr>
-				<td style = " border-style: none;"></td>
-				<td bgcolor = "lightgreen" style = "font-weight: bold">
-					Enter Dummy Text and Then Press 'Create Directory'
-				</td>
-				
-				<td bgcolor = "lightred">
-					<input type = "text" style = "width: 220px;"
-					class = "form-control" name = "add" id = "add" />
-				</td>
-				
-				<td bgcolor = "lightgreen" colspan = "2">
-					<input type = "submit" name = "submit"
-						value = "Create directory" />
-				</td>
-			</tr>
-			</table>
-		</form>    
-        <?php
-		}
-		else {
-			createDirectory();
-		}?>
-  
            </div>
 
-                    
+           <?php
+
+require ('../modules/FolderCreate.php');
+?>
                
             </div>
         </div>

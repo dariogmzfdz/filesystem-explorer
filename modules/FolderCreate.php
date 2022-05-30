@@ -1,26 +1,13 @@
-<!DOCTYPE html>
 <?php
 	function createDirectory() {
 		$add = $_POST["add"];
-		//mkdir("".$add);
-		$path = '/uploads'; 
-		mkdir($path, 0777, true);
-	
+		mkdir("./folders/" . $add);
 		echo "<script type = 'text/javascript'>alert('Done!');</script>";
 	}
-?>
-<html>
-	<head>
-		<title>
-			Create directory with HTML button and PHP
-		</title>
-	</head>
-	
-	<body>
-	<?php
+
 		if (!isset($_POST['submit'])) {
 	?>
-		<form action = "" method = "post">
+<form action = "" method = "post">
 			
 			<table>
 			<tr>
@@ -30,7 +17,7 @@
 				</td>
 				
 				<td bgcolor = "lightred">
-					<input type = "text" style = "width: 120px;"
+					<input type = "text" style = "width: 220px;"
 					class = "form-control" name = "add" id = "add" />
 				</td>
 				
@@ -40,13 +27,10 @@
 				</td>
 			</tr>
 			</table>
-		</form>
-	<?php
+		</form>    
+        <?php
 		}
 		else {
 			createDirectory();
-			
-		}
-	?>
-	</body>
-</html>
+		}?>
+  
